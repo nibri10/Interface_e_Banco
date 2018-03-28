@@ -32,7 +32,7 @@ public class PessoaController {
        String sql = "INSERT INTO usuario(nome,datanasc) VALUES(?,?)";
        
        try{ 
-           PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(sql);
+           PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(sql); // insere no banco de dados
        
            stmt.setString(1, pessoa.getNome());
            stmt.setString(2, pessoa.getDatanasc());
@@ -40,7 +40,7 @@ public class PessoaController {
            stmt.close();
        
        
-       }catch(SQLException u){
+       }catch(SQLException u){//mostra o erro caso nao funcionou a insercao
            throw new RuntimeException(u);
        }
    }
